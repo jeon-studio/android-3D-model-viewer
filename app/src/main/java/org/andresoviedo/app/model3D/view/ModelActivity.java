@@ -148,43 +148,33 @@ public class ModelActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.model_toggle_wireframe:
-                scene.toggleWireframe();
-                break;
-            case R.id.model_toggle_boundingbox:
-                scene.toggleBoundingBox();
-                break;
-            case R.id.model_toggle_textures:
-                scene.toggleTextures();
-                break;
-            case R.id.model_toggle_animation:
-                scene.toggleAnimation();
-                break;
-            case R.id.model_toggle_collision:
-                scene.toggleCollision();
-                break;
-            case R.id.model_toggle_lights:
-                scene.toggleLighting();
-                break;
-            case R.id.model_toggle_stereoscopic:
-                scene.toggleStereoscopic();
-                break;
-            case R.id.model_toggle_blending:
-                scene.toggleBlending();
-                break;
-            case R.id.model_toggle_immersive:
-                toggleImmersive();
-                break;
-            case R.id.model_load_texture:
-                Intent target = ContentUtils.createGetContentIntent("image/*");
-                Intent intent = Intent.createChooser(target, "Select a file");
-                try {
-                    startActivityForResult(intent, REQUEST_CODE_LOAD_TEXTURE);
-                } catch (ActivityNotFoundException e) {
-                    // The reason for the existence of aFileChooser
-                }
-                break;
+        int itemId = item.getItemId();
+        if( itemId == R.id.model_toggle_wireframe ){
+            scene.toggleWireframe();
+        }else if( itemId == R.id.model_toggle_boundingbox ){
+            scene.toggleBoundingBox();
+        }else if( itemId == R.id.model_toggle_textures ){
+            scene.toggleTextures();
+        }else if( itemId == R.id.model_toggle_animation ){
+            scene.toggleAnimation();
+        }else if( itemId == R.id.model_toggle_collision ){
+            scene.toggleCollision();
+        }else if( itemId == R.id.model_toggle_lights ){
+            scene.toggleLighting();
+        }else if( itemId == R.id.model_toggle_stereoscopic ){
+            scene.toggleStereoscopic();
+        }else if( itemId == R.id.model_toggle_blending ){
+            scene.toggleBlending();
+        }else if( itemId == R.id.model_toggle_immersive ){
+            toggleImmersive();
+        }else if( itemId == R.id.model_load_texture ){
+            Intent target = ContentUtils.createGetContentIntent( "image/*" );
+            Intent intent = Intent.createChooser( target, "Select a file" );
+            try{
+                startActivityForResult( intent, REQUEST_CODE_LOAD_TEXTURE );
+            }catch( ActivityNotFoundException e ){
+                // The reason for the existence of aFileChooser
+            }
         }
 
         hideSystemUIDelayed();

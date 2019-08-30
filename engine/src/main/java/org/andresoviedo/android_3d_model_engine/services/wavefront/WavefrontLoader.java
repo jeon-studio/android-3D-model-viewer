@@ -31,7 +31,6 @@ package org.andresoviedo.android_3d_model_engine.services.wavefront;
 
 import android.net.Uri;
 import android.opengl.GLES20;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import org.andresoviedo.util.android.ContentUtils;
@@ -52,6 +51,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import androidx.annotation.Nullable;
 
 public class WavefrontLoader {
 
