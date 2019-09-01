@@ -1,6 +1,7 @@
 package org.andresoviedo.android_3d_model_engine.services;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -8,6 +9,8 @@ import android.os.AsyncTask;
 import org.andresoviedo.android_3d_model_engine.model.Object3DData;
 
 import java.util.List;
+
+import dmax.dialog.SpotsDialog;
 
 /**
  * This component allows loading the model without blocking the UI.
@@ -27,7 +30,7 @@ public abstract class LoaderTask extends AsyncTask<Void, Integer, List<Object3DD
 	/**
 	 * The dialog that will show the progress of the loading
 	 */
-	private final ProgressDialog dialog;
+	private final AlertDialog dialog;
 
 	/**
 	 * Build a new progress dialog for loading the data model asynchronously
@@ -38,7 +41,8 @@ public abstract class LoaderTask extends AsyncTask<Void, Integer, List<Object3DD
 		this.uri = uri;
 		// this.dialog = ProgressDialog.show(this.parent, "Please wait ...", "Loading model data...", true);
 		// this.dialog.setTitle(modelId);
-		this.dialog = new ProgressDialog(parent);
+//		this.dialog = new ProgressDialog(parent);
+		this.dialog = new SpotsDialog.Builder().setContext( parent ).build();
 		this.callback = callback; }
 
 

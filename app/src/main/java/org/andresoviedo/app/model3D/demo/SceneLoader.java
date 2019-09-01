@@ -443,7 +443,7 @@ public class SceneLoader implements LoaderTask.Callback {
             makeToastText(allErrors.toString(), Toast.LENGTH_LONG);
         }
         final String elapsed = (SystemClock.uptimeMillis() - startTime) / 1000 + " secs";
-        makeToastText("Build complete (" + elapsed + ")", Toast.LENGTH_LONG);
+//        makeToastText("Build complete (" + elapsed + ")", Toast.LENGTH_LONG);
         ContentUtils.setThreadActivity(null);
     }
 
