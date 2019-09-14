@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 
+import org.andresoviedo.android_3d_model_engine.R;
 import org.andresoviedo.android_3d_model_engine.model.Object3DData;
 
 import java.util.List;
@@ -42,7 +43,10 @@ public abstract class LoaderTask extends AsyncTask<Void, Integer, List<Object3DD
 		// this.dialog = ProgressDialog.show(this.parent, "Please wait ...", "Loading model data...", true);
 		// this.dialog.setTitle(modelId);
 //		this.dialog = new ProgressDialog(parent);
-		this.dialog = new SpotsDialog.Builder().setContext( parent ).build();
+		this.dialog = new SpotsDialog.Builder()
+				.setContext( parent )
+				.setTheme( R.style.SpotsDialogCustom )
+				.build();
 		this.callback = callback; }
 
 
